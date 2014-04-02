@@ -480,7 +480,8 @@
 				var originalComplete = origSettings.complete;
 				origSettings.complete = function() {
 				if ( $.isFunction(originalComplete) ) originalComplete.apply(this, arguments);
-					mockHandler.onAfterComplete();
+					var json = arguments[0].responseJSON;
+					mockHandler.onAfterComplete(json);
 				}
 			}
 
